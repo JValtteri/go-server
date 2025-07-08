@@ -81,3 +81,9 @@ screen -S server -d -m ./go-online
 ```
 
 The smarter way would be to run the server as a service
+
+### Example with customized back-end features
+[Low Latency Weather Server](https://github.com/JValtteri/ll-weather-server)
+
+### Example of a vanilla server
+[fem-online](https://github.com/JValtteri/fem-online)
