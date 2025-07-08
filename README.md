@@ -28,10 +28,7 @@ go-server/
    - index.html
 ```
 
-### config.json
-
-Example
-
+### Example config.json
 ```json
 {
     "ORIGIN_URL": "localhost",
