@@ -13,9 +13,9 @@ func server() {
     log.Println("Server UP")
     LoadConfig()
     http.HandleFunc("/", defaultRequest)
-    http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./static/css"))))
-    http.Handle("/js/",  http.StripPrefix("/js/",  http.FileServer(http.Dir("./static/js"))))
-    http.Handle("/img/", http.StripPrefix("/img/",  http.FileServer(http.Dir("./static/img"))))
+    http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir(fmt.Sprintf("%s/css", CONFIG.SOURCE_DIR)))))
+    http.Handle("/js/",  http.StripPrefix("/js/",  http.FileServer(http.Dir(fmt.Sprintf("%s/js", CONFIG.SOURCE_DIR)))))
+    http.Handle("/img/", http.StripPrefix("/img/",  http.FileServer(http.Dir(fmt.Sprintf("%s/img", CONFIG.SOURCE_DIR)))))
     if CONFIG.ENABLE_TLS {
         log.Fatal(http.ListenAndServeTLS(
             fmt.Sprintf( ":%s", CONFIG.SERVER_PORT),
@@ -27,7 +27,7 @@ func server() {
 }
 
 func defaultRequest(w http.ResponseWriter, request *http.Request) {
-    http.ServeFile(w, request, "./static/index.html")
+    http.ServeFile(w, request, fmt.Sprintf("%s/index.html", CONFIG.SOURCE_DIR))
 }
 
 func setCorrs(w http.ResponseWriter) {

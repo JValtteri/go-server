@@ -31,6 +31,7 @@ go-server/
 ### Example config.json
 ```json
 {
+    "SOURCE_DIR": "./static"
     "ORIGIN_URL": "localhost",
     "SERVER_PORT": "8000",
     "ENABLE_TLS": false,
@@ -41,6 +42,7 @@ go-server/
 
 | Key | default | description |
 | :--: | :--: | -- |
+| `SOURCE_DIR` | `"./static"` | folder which contains `css`, `js` & `img` folders |
 | `ORIGIN_URL` | `"localhost"` |  |
 | `SERVER_PORT` | `"8000"` | port the server is listening on |
 | `ENABLE_TLS` | `"false"` | Should the server use HTTPS |

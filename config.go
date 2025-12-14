@@ -7,6 +7,7 @@ import (
 )
 
 type Config struct {
+    SOURCE_DIR       string
     ORIGIN_URL       string
     SERVER_PORT      string
     ENABLE_TLS       bool
@@ -15,7 +16,14 @@ type Config struct {
 }
 
 const CONFIG_FILE string = "config.json"
-var CONFIG Config
+var CONFIG = Config {
+    SOURCE_DIR:       "./static",
+    ORIGIN_URL:       "localhost",
+    SERVER_PORT:      "8000",
+    ENABLE_TLS:       false,
+    CERT_FILE:        "cert.pem",
+    PRIVATE_KEY_FILE: "privkey.pem",
+}
 
 func LoadConfig() {
     raw_config := readConfig(CONFIG_FILE)
