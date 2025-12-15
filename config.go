@@ -28,6 +28,9 @@ var CONFIG = Config {
 func LoadConfig() {
     raw_config := readConfig(CONFIG_FILE)
     unmarshal(raw_config, &CONFIG)
+    if CONFIG.SOURCE_DIR == "./" {
+        log.Fatal("Fatal Error: Unsafe source dir './'\n")
+    }
     log.Printf("Server url/port: %s:%s\n", CONFIG.ORIGIN_URL, CONFIG.SERVER_PORT)
     if CONFIG.ENABLE_TLS {
         log.Println("TLS is Enabled")

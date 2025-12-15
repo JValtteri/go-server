@@ -68,6 +68,12 @@ go build
 ./go-server
 ``` 
 
+### Unsafe source dir `'./'`
+
+Using the local directory is a security hazzard, so the server will not allow it. A subdirectory is a recommended option, but a different directory works too.
+
+The default is `"./static"`.
+
 ---
 
 ### Tips for deployments
